@@ -95,3 +95,12 @@ i.accept_decline_icon
 i.assign_icon{
     color: #6e3e9e;
 }
+
+.image_rounded{
+    border-radius: 50%;
+}
+
+.list-group{
+    --bs-list-group-action-hover-bg: #245ed1
+}
+

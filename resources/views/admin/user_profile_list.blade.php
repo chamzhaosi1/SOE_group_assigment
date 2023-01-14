@@ -38,13 +38,29 @@
                     <td class="d-none d-sm-table-cell">{{ $user->department->name ?? '-' }}</td>
                     <td>
                         <div class="d-inline-flex w-100 justify-content-around">
-                            <a href="{{ route('users.show', ['user' => $user->id]) }}"><i class="fa-solid fa-file-lines view_icon me-2"></i></a>
-                            <a href="{{ route('users.edit', ['user' => $user->id]) }}"><i class="fa-solid fa-pen-to-square edit_icon"></i></a>
+                            <a type="button"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            data-bs-custom-class="custom-tooltip"
+                            data-bs-title="VIEW"
+                            href="{{ route('users.show', ['user' => $user->id]) }}">
+                                <i
+                                class="fa-solid fa-file-lines view_icon me-2">
+                                </i>
+                            </a>
+                            <a type="button"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom"
+                            data-bs-custom-class="custom-tooltip"
+                            data-bs-title="EDIT"
+                            href="{{ route('users.edit', ['user' => $user->id]) }}">
+                            <i class="fa-solid fa-pen-to-square edit_icon"></i></a>
 
                             <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="image" src="{{ asset('/images/delete.png') }}" alt="delete.png" width="30px">
+                                <input type="image" type="button"
+                                data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                data-bs-custom-class="custom-tooltip"
+                                data-bs-title="DELETE" src="{{ asset('/images/delete.png') }}" alt="delete.png" width="30px">
                             </form>
                         </div>
                     </td>
@@ -60,5 +76,7 @@
         </div>
     @endif
 </div>
+
+
 
 @endsection
